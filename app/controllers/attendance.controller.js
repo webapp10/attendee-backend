@@ -1,10 +1,10 @@
 const axios = require("axios");
-
+const { BASE_PATH } = require("../exports/basepath");
 exports.AttendanceInfo = (req, res) => {
   const registerationid = req.body.registerationid;
   const options = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/attendanceinfo",
+    url: `${BASE_PATH}/CampusPortalSOA/attendanceinfo`,
     data: {
       registerationid: `${registerationid}`,
     },
@@ -25,3 +25,9 @@ exports.AttendanceInfo = (req, res) => {
       });
     });
 };
+
+/*
+- last checked: 22-05-2023
+- looks fine
+- checked by Subhranshu Choudhury
+ */

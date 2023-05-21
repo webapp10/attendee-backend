@@ -1,16 +1,17 @@
 const axios = require("axios");
-
+const { BASE_PATH } = require("../exports/basepath");
 exports.ForgotPassword = async (req, res) => {
   const EnrollmentNo = req.body.EnrollmentNo;
   const MobileNo = req.body.MobileNo;
   const enrollmentNo = req.body.enrollmentNo;
   const forgetFor = req.body.forgetFor;
+  const BASE_URL = `${BASE_PATH}/CampusPortalSOA/forgetPassword`;
 
   console.log(`👤 requested user: ${enrollmentNo || EnrollmentNo}`);
 
   const options = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/forgetPassword",
+    url: BASE_URL,
     data: {
       EnrollmentNo: `${EnrollmentNo}`,
       MobileNo: `${MobileNo}`,
@@ -20,7 +21,7 @@ exports.ForgotPassword = async (req, res) => {
 
   const options_2 = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/forgetPassword",
+    url: BASE_URL,
     data: {
       enrollmentNo: `${enrollmentNo}`,
       forgetFor: `${forgetFor}`,
@@ -40,3 +41,9 @@ exports.ForgotPassword = async (req, res) => {
 };
 
 //  for change password route, check the login controller.
+
+/*
+- last checked: 22-05-2023
+- looks fine
+- checked by Subhranshu Choudhury
+ */

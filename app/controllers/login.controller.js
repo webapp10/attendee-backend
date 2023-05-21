@@ -1,15 +1,16 @@
 const axios = require("axios");
-
+const { BASE_PATH } = require("../exports/basepath");
 exports.LoginAndChangePassword = async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const newpassword = req.body.newpassword;
   const confirmpassword = req.body.confirmpassword;
   const MemberType = req.body.MemberType; // s
+  const BASE_URL = `${BASE_PATH}/CampusPortalSOA/login`;
 
   const options = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/login",
+    url: BASE_URL,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
@@ -18,7 +19,7 @@ exports.LoginAndChangePassword = async (req, res) => {
 
   const options_2 = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/login",
+    url: BASE_URL,
     data: {
       newpassword: `${newpassword}`,
       confirmpassword: `${confirmpassword}`,
@@ -44,3 +45,9 @@ exports.LoginAndChangePassword = async (req, res) => {
       });
     });
 };
+
+/*
+- last checked: 22-05-2023
+- looks fine
+- checked by Subhranshu Choudhury
+ */

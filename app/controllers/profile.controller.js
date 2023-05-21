@@ -1,10 +1,10 @@
 const axios = require("axios");
-
+const { BASE_PATH } = require("../exports/basepath");
 exports.UserInfo = (req, res) => {
   const Cookie = req.headers["cookie"];
   const options = {
     method: "POST",
-    url: "http://115.240.101.51:8282/CampusPortalSOA/studentinfo",
+    url: `${BASE_PATH}/CampusPortalSOA/studentinfo`,
     headers: {
       Cookie: `${Cookie}`,
     },
@@ -27,3 +27,9 @@ exports.UserInfo = (req, res) => {
       });
     });
 };
+
+/*
+- last checked: 22-05-2023
+- looks fine
+- checked by Subhranshu Choudhury
+ */
