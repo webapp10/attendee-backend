@@ -7,8 +7,6 @@ exports.LoginAndChangePassword = async (req, res) => {
   const confirmpassword = req.body.confirmpassword;
   const MemberType = req.body.MemberType; // s
 
-  console.log(`👤 requested user: ${req.body?.username}`);
-
   const options = {
     method: "POST",
     url: "http://115.240.101.51:8282/CampusPortalSOA/login",
@@ -33,6 +31,7 @@ exports.LoginAndChangePassword = async (req, res) => {
   axios
     .request(confirmpassword && newpassword ? options_2 : options)
     .then(function (response) {
+      console.log(`👤 requested user: ${username} - ${response?.data?.name}`);
       res.set({
         "set-cookie": response.headers["set-cookie"],
       });
