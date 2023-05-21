@@ -21,7 +21,6 @@ exports.UserInfo = (req, res) => {
       res.send(response.data);
     })
     .catch(function (error) {
-      console.log(error);
       res.send({
         error: true,
         message: error,

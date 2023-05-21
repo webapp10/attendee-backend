@@ -16,7 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendStatus(200);
+  res.status(200).send({
+    base: BASE_PATH,
+    version: 1,
+    ver: "ver 1.0",
+    developer: "Subhranshu Choudhury",
+    report: "subhransuchoudhury00@gmail.com +91 8249587552",
+  });
 });
 
 // routes
@@ -31,3 +37,6 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`🌍 Server is running on port ${PORT}.`);
 });
+
+// checked by subhranshu choudhury on 22-05-2023
+// MIT License
