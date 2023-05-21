@@ -17,7 +17,7 @@ exports.Result = (req, res) => {
     .catch(function (error) {
       res.send({
         error: true,
-        error_details: error,
+        message: error,
       });
     });
 };

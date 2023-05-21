@@ -4,6 +4,7 @@ exports.ForgotPassword = async (req, res) => {
   const EnrollmentNo = req.body.EnrollmentNo;
   const MobileNo = req.body.MobileNo;
   const enrollmentNo = req.body.enrollmentNo;
+  const forgetFor = req.body.forgetFor;
 
   console.log(`👤 requested user: ${enrollmentNo || EnrollmentNo}`);
 
@@ -13,7 +14,7 @@ exports.ForgotPassword = async (req, res) => {
     data: {
       EnrollmentNo: `${EnrollmentNo}`,
       MobileNo: `${MobileNo}`,
-      forgetFor: "S",
+      forgetFor: `${forgetFor}`, // S
     },
   };
 

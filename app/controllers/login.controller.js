@@ -5,6 +5,7 @@ exports.LoginAndChangePassword = async (req, res) => {
   const password = req.body.password;
   const newpassword = req.body.newpassword;
   const confirmpassword = req.body.confirmpassword;
+  const MemberType = req.body.MemberType; // s
 
   console.log(`👤 requested user: ${req.body?.username}`);
 
@@ -14,7 +15,7 @@ exports.LoginAndChangePassword = async (req, res) => {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    data: `{"username":"${username}" ,"password":"${password}","MemberType":"s"}`,
+    data: `{"username":"${username}" ,"password":"${password}","MemberType":"${MemberType}"}`,
   };
 
   const options_2 = {
