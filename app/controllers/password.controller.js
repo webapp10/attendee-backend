@@ -23,7 +23,7 @@ exports.ForgotPassword = async (req, res) => {
     url: "http://115.240.101.51:8282/CampusPortalSOA/forgetPassword",
     data: {
       enrollmentNo: `${enrollmentNo}`,
-      forgetFor: "S",
+      forgetFor: `${forgetFor}`,
     },
   };
   axios
