@@ -13,14 +13,15 @@ exports.UserInfo = (req, res) => {
   axios
     .request(options)
     .then(function (response) {
-      if (response?.data?.details[0]?.name) {
+      if (response?.data?.detail?.[0]?.name) {
         console.log(
-          `👤 requested user: ${response?.data?.details[0]?.name} - ${response?.data?.details[0]?.enrollmentno}`
+          `👤 requested user: ${response?.data?.detail?.[0]?.name} - ${response?.data?.detail?.[0]?.enrollmentno}`
         );
       }
       res.send(response.data);
     })
     .catch(function (error) {
+      console.log(error);
       res.send({
         error: true,
         message: error,
