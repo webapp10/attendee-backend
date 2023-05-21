@@ -13,6 +13,11 @@ exports.UserInfo = (req, res) => {
   axios
     .request(options)
     .then(function (response) {
+      if (response?.data?.details[0]?.name) {
+        console.log(
+          `👤 requested user: ${response?.data?.details[0]?.name} - ${response?.data?.details[0]?.enrollmentno}`
+        );
+      }
       res.send(response.data);
     })
     .catch(function (error) {

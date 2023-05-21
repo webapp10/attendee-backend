@@ -12,6 +12,11 @@ exports.Result = (req, res) => {
   axios
     .request(options)
     .then(function (response) {
+      if (response?.data?.info[0]?.name) {
+        console.log(
+          `👤 requested user: ${response?.data?.info[0]?.name} - ${response?.data?.info[0]?.enrollmentno}`
+        );
+      }
       res.send(response.data);
     })
     .catch(function (error) {
