@@ -35,7 +35,7 @@ require("./app/routes/test.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`🌍 Server is running on port ${PORT}.`);
+  console.log(`🌍 Server is running on port http://localhost:${PORT}.`);
 });
 
 // checked by subhranshu choudhury on 22-05-2023
