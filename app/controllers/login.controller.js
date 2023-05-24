@@ -32,11 +32,25 @@ exports.LoginAndChangePassword = async (req, res) => {
   axios
     .request(confirmpassword && newpassword ? options_2 : options)
     .then(function (response) {
+      const cookie = response?.headers["set-cookie"] || null;
       console.log(`👤 requested user: ${username} - ${response?.data?.name}`);
       res.set({
         "set-cookie": response.headers["set-cookie"],
       });
-      res.status(200).send(response.data);
+      if (response?.data?.status === "success") {
+        res.status(200).json({
+          name: response.data.name,
+          status: "success",
+          cookie: cookie,
+          message: response.data.message,
+        });
+      } else {
+        res.status(400).json({
+          name: "",
+          status: "error",
+          message: response.data.message,
+        });
+      }
     })
     .catch(function (error) {
       res.status(500).send({
