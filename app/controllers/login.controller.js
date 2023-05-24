@@ -61,7 +61,7 @@ exports.LoginAndChangePassword = async (req, res) => {
 };
 
 /*
-- last checked: 22-05-2023
+- last checked: 25-05-2023
 - looks fine
 - checked by Subhranshu Choudhury
  */
